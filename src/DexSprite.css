@@ -1,0 +1,69 @@
+.sprite-container {
+  cursor: pointer;
+  margin: 16px;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  border-width: 3px;
+  border-style: solid;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+.sprite-container:hover .pokesprite.pokemon {
+  animation-duration: 0.3s;
+  animation-iteration-count: infinite;
+  animation-name: bounce;
+}
+
+.pokesprite.pokemon {
+  position: relative;
+  top: -14px;
+  left: -10px;
+}
+
+.bug-primary { background-color: #D8E030 }
+.bug-secondary { border-color: #A8B820 }
+.dark-primary { background-color: #B5A59C }
+.dark-secondary { border-color: #484038 }
+.dragon-primary { background-color: #7B63E7 }
+.dragon-secondary { border-color: #4A3994 }
+.electric-primary { background-color: #FFE794 }
+.electric-secondary { border-color: #FFD631 }
+.fairy-primary { background-color: #F5AAE5 }
+.fairy-secondary { border-color: #ED8FE6 }
+.fighting-primary { background-color: #D47C64 }
+.fighting-secondary { border-color: #984838 }
+.fire-primary { background-color: #F8C090 }
+.fire-secondary { border-color: #A41010  }
+.flying-primary { background-color: #C8C0F8  }
+.flying-secondary { border-color: #A890F0 }
+.ghost-primary { background-color: #705898 }
+.ghost-secondary { border-color: #483850  }
+.grass-primary { background-color: #90E880 }
+.grass-secondary { border-color: #62BD5A }
+.ground-primary { background-color: #E0C068  }
+.ground-secondary { border-color: #886830 }
+.ice-primary { background-color: #D0F8E8 }
+.ice-secondary { border-color: #98D8D8 }
+.normal-primary { background-color: #E8E8D8 }
+.normal-secondary { border-color: #ADA594 }
+.poison-primary { background-color: #D880B8 }
+.poison-secondary { border-color: #A040A0 }
+.psychic-primary { background-color: #FF7AB0 }
+.psychic-secondary { border-color: #F85888 }
+.rock-primary { background-color: #C8B78B }
+.rock-secondary { border-color: #735218 }
+.steel-primary { background-color: #A0AAB0 }
+.steel-secondary { border-color: #7C7C7C }
+.water-primary { background-color: #98C0F8 }
+.water-secondary { border-color: #5C84EC }
