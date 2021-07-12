@@ -28,6 +28,9 @@ function App() {
   const removeFromTeam = (index: number) => {
     const updatedTeam = [...team];
 
+    if(!team[index]) {
+      return;
+    }
     updatedTeam.splice(index, 1);
     setTeam(updatedTeam);
   }
@@ -35,9 +38,9 @@ function App() {
   return (
     <div className="App">
       {
-        team.map((mon: IPokemonSpecies, index: number) => 
-          <DexSprite key={index} pokemon={mon} handleClick={() => removeFromTeam(index)} />
-        )
+          [...Array(6).keys()].map((i: number) => 
+            <DexSprite key={i} pokemon={team[i]} handleClick={() => removeFromTeam(i)} />
+          )
       }
       <br />
       <ul>
