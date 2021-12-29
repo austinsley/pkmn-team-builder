@@ -37,19 +37,21 @@ function App() {
 
   return (
     <div className="App">
-      {
+      <div className="team-container">
+        {
           [...Array(6).keys()].map((i: number) => 
             <DexSprite key={i} pokemon={team[i]} handleClick={() => removeFromTeam(i)} />
           )
-      }
-      <br />
-      <ul>
+        }
+      </div>
+      
+      <div className="dex-container">
       {
         pokedex.map((species: IPokemonSpecies) =>
           <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)}/>
         )
       }
-      </ul>
+      </div>
     </div>
   );
 }

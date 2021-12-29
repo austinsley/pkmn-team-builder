@@ -15,6 +15,6 @@ export const DexSprite = ({pokemon, handleClick}: {
     <li
       className='sprite-container mystery-primary mystery-secondary'
     >
-      <span className='pokesprite pokemon unown-question'></span>
+      <span className='pokesprite pokemon ditto shiny'></span>
     </li>
   )

@@ -2878,7 +2878,7 @@
   },
   {
     "id": 386,
-    "slug": "deoxys-normal",
+    "slug": "deoxys",
     "types": [
       "psychic"
     ]
@@ -3079,7 +3079,7 @@
   },
   {
     "id": 413,
-    "slug": "wormadam-plant",
+    "slug": "wormadam",
     "types": [
       "bug",
       "grass"
@@ -3637,7 +3637,7 @@
   },
   {
     "id": 487,
-    "slug": "giratina-altered",
+    "slug": "giratina",
     "types": [
       "ghost",
       "dragon"
@@ -3673,7 +3673,7 @@
   },
   {
     "id": 492,
-    "slug": "shaymin-land",
+    "slug": "shaymin",
     "types": [
       "grass"
     ]
@@ -4098,7 +4098,7 @@
   },
   {
     "id": 550,
-    "slug": "basculin-red-striped",
+    "slug": "basculin",
     "types": [
       "water"
     ]
@@ -4136,7 +4136,7 @@
   },
   {
     "id": 555,
-    "slug": "darmanitan-standard",
+    "slug": "darmanitan",
     "types": [
       "fire"
     ]
@@ -4782,14 +4782,14 @@
   },
   {
     "id": 641,
-    "slug": "tornadus-incarnate",
+    "slug": "tornadus",
     "types": [
       "flying"
     ]
   },
   {
     "id": 642,
-    "slug": "thundurus-incarnate",
+    "slug": "thundurus",
     "types": [
       "electric",
       "flying"
@@ -4813,7 +4813,7 @@
   },
   {
     "id": 645,
-    "slug": "landorus-incarnate",
+    "slug": "landorus",
     "types": [
       "ground",
       "flying"
@@ -4829,7 +4829,7 @@
   },
   {
     "id": 647,
-    "slug": "keldeo-ordinary",
+    "slug": "keldeo",
     "types": [
       "water",
       "fighting"
@@ -4837,7 +4837,7 @@
   },
   {
     "id": 648,
-    "slug": "meloetta-aria",
+    "slug": "meloetta",
     "types": [
       "normal",
       "psychic"
@@ -5060,7 +5060,7 @@
   },
   {
     "id": 678,
-    "slug": "meowstic-male",
+    "slug": "meowstic",
     "types": [
       "psychic"
     ]
@@ -5083,7 +5083,7 @@
   },
   {
     "id": 681,
-    "slug": "aegislash-shield",
+    "slug": "aegislash",
     "types": [
       "steel",
       "ghost"
@@ -5305,7 +5305,7 @@
   },
   {
     "id": 710,
-    "slug": "pumpkaboo-average",
+    "slug": "pumpkaboo",
     "types": [
       "ghost",
       "grass"
@@ -5313,7 +5313,7 @@
   },
   {
     "id": 711,
-    "slug": "gourgeist-average",
+    "slug": "gourgeist",
     "types": [
       "ghost",
       "grass"
@@ -5351,7 +5351,7 @@
   },
   {
     "id": 716,
-    "slug": "xerneas",
+    "slug": "xerneas-active",
     "types": [
       "fairy"
     ]
@@ -5542,7 +5542,7 @@
   },
   {
     "id": 741,
-    "slug": "oricorio-baile",
+    "slug": "oricorio",
     "types": [
       "fire",
       "flying"
@@ -5573,14 +5573,14 @@
   },
   {
     "id": 745,
-    "slug": "lycanroc-midday",
+    "slug": "lycanroc",
     "types": [
       "rock"
     ]
   },
   {
     "id": 746,
-    "slug": "wishiwashi-solo",
+    "slug": "wishiwashi-school",
     "types": [
       "water"
     ]
@@ -5791,7 +5791,7 @@
   },
   {
     "id": 774,
-    "slug": "minior-red-meteor",
+    "slug": "minior",
     "types": [
       "rock",
       "flying"
@@ -5822,7 +5822,7 @@
   },
   {
     "id": 778,
-    "slug": "mimikyu-disguised",
+    "slug": "mimikyu",
     "types": [
       "ghost",
       "fairy"
@@ -6353,7 +6353,7 @@
   },
   {
     "id": 849,
-    "slug": "toxtricity-amped",
+    "slug": "toxtricity",
     "types": [
       "electric",
       "poison"
@@ -6547,14 +6547,14 @@
   },
   {
     "id": 875,
-    "slug": "eiscue-ice",
+    "slug": "eiscue",
     "types": [
       "ice"
     ]
   },
   {
     "id": 876,
-    "slug": "indeedee-male",
+    "slug": "indeedee",
     "types": [
       "psychic",
       "normal"
@@ -6648,14 +6648,14 @@
   },
   {
     "id": 888,
-    "slug": "zacian-hero-of-many-battles",
+    "slug": "zacian",
     "types": [
       "fairy"
     ]
   },
   {
     "id": 889,
-    "slug": "zamazenta-hero-of-many-battles",
+    "slug": "zamazenta",
     "types": [
       "fighting"
     ]

@@ -1,0 +1,22 @@
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-items: center;
+
+  margin: 0 auto;
+}
+
+.dex-container {
+  margin-top: 32px;
+  background-image: url(assets/test.png);
+  width: 60%;
+  height: 600px;
+  overflow: scroll;
+  margin: 32px auto 0;
+}
+
+@media (min-width: 900px) {
+  .team-container {
+    grid-template-columns: repeat(6, auto);
+  }
+}
