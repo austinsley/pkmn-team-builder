@@ -8,8 +8,6 @@
 
 .dex-container {
   margin-top: 32px;
-  background-image: url(assets/test.png);
-  width: 60%;
   height: 600px;
   overflow: scroll;
   margin: 32px auto 0;
