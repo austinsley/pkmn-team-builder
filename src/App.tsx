@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import 'pokesprite-spritesheet/assets/pokesprite-pokemon-gen8.css';
 
 import pokedex from './data/pokemon.json';
+import { PartyMember } from './PartyMember';
 import { DexSprite } from './DexSprite';
 
 import './App.css';
-import './assets/pokesprite-pokemon-gen8.css';
-import { PartyMember } from './PartyMember';
 
 export interface IPokemonSpecies {
   id: number,
