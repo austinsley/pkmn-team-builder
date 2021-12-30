@@ -1,6 +1,6 @@
 .sprite-container {
   cursor: pointer;
-  margin: 16px;
+  margin: 12px;
   display: inline-block;
   height: 48px;
   width: 48px;
@@ -15,7 +15,7 @@
   }
 
   50% {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
   }
 }
 
@@ -55,6 +55,8 @@
 .ground-secondary { border-color: #af803c }
 .ice-primary { background-color: #94e3e8 }
 .ice-secondary { border-color: #6acad5 }
+.mystery-primary { background-color: #9dc1b7 }
+.mystery-secondary { border-color: #44685e }
 .normal-primary { background-color: #c6c9bb }
 .normal-secondary { border-color: #8e9383 }
 .poison-primary { background-color: #ce88cb }
