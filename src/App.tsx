@@ -5,6 +5,7 @@ import { DexSprite } from './DexSprite';
 
 import './App.css';
 import './assets/pokesprite-pokemon-gen8.css';
+import { PartyMember } from './PartyMember';
 
 export interface IPokemonSpecies {
   id: number,
@@ -39,9 +40,9 @@ function App() {
     <div className="App">
       <div className="team-container">
         {
-          [...Array(6).keys()].map((i: number) => 
-            <DexSprite key={i} pokemon={team[i]} handleClick={() => removeFromTeam(i)} />
-          )
+          [...Array(6).keys()].map((i: number) => (
+            <PartyMember key={i} pokemon={team[i]} handleClick={() => removeFromTeam(i)}></PartyMember>
+          ))
         }
       </div>
       

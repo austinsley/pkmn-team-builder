@@ -1,0 +1,11 @@
+.PartyMember {
+  height: 200px;
+}
+
+.remove-button {
+  display: none;
+}
+
+.PartyMember:hover .remove-button {
+    display: inline-block;
+}
