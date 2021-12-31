@@ -1,11 +1,40 @@
-.PartyMember {
-  height: 200px;
+* {
+  float: center;
 }
 
-.remove-button {
-  display: none;
+.PartyMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
 }
 
 .PartyMember:hover .remove-button {
     display: inline-block;
+}
+
+.mod-button-container {
+  width: 100%;
+}
+
+.mod-button {
+  user-select: none;
+  cursor: pointer;
+}
+
+.shiny-toggle {
+  float: left;
+}
+
+.shiny-toggle.active {
+  color: red;
+}
+
+.shiny-toggle.inactive {
+  color: silver;
+}
+
+.remove-button {
+  float: right;
+  display: none;
 }
