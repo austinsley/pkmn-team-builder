@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { DexSprite } from './DexSprite';
 import { IPartyMember } from './models/models';
 
+import 'pokesprite-spritesheet/assets/pokesprite-inventory.css';
+import 'pokesprite-spritesheet/assets/pokesprite-misc.css';
+
 import './PartyMember.css';
 
 export const PartyMember = ({pokemon, remove, shinySwap}: {
@@ -20,8 +23,9 @@ export const PartyMember = ({pokemon, remove, shinySwap}: {
           <span className='mod-button remove-button' onClick={remove}>×</span>
         </div>
         <DexSprite pokemon={pokemon.species} shiny={pokemon.shiny}></DexSprite>
-        <p>{pokemon.species.slug}</p>
-        <p>{pokemon.species.types[0]}{pokemon.species.types[1] ? ` - ${pokemon.species.types[1]}` : ''}</p>
+
+        <span>{pokemon.species.slug}</span> 
+        <span>{pokemon.species.types[0]}{pokemon.species.types[1] ? `/${pokemon.species.types[1]}` : ''}</span>
       </div>
     );
 };
