@@ -4,6 +4,7 @@ import 'pokesprite-spritesheet/assets/pokesprite-pokemon-gen8.css';
 import pokedex from './data/pokemon.json';
 import { IPartyMember, IPokemonSpecies, ISpeciesFilters } from './models/models';
 import { DexSprite } from './DexSprite';
+import { FiltersContainer } from './FiltersContainer';
 import { PartyMember } from './PartyMember';
 
 import './App.css';
@@ -93,6 +94,8 @@ export const App = () => {
           ))
         }
       </div>
+
+      <FiltersContainer filters={{...filters}} setFilters={setFilters} />
       
       <div className="dex-container">
       {
