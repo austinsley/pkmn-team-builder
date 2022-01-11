@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'pokesprite-spritesheet/assets/pokesprite-pokemon-gen8.css';
 
 import pokedex from './data/pokemon.json';
-import { IPartyMember, IPokemonSpecies } from './models/models';
+import { IPartyMember, IPokemonSpecies, ISpeciesFilters } from './models/models';
 import { DexSprite } from './DexSprite';
 import { PartyMember } from './PartyMember';
 
 import './App.css';
 
-function App() {
+export const App = () => {
   const [team, setTeam] = useState([] as IPartyMember[]);
+  const [filters, setFilters] = useState({
+    allowedTypes: new Set(),
+    excludedTypes: new Set(),
+  } as ISpeciesFilters);
+  const [dexOptions, setDexOptions] = useState(pokedex as IPokemonSpecies[]);
+
+  useEffect(() => {
+    let newOptions = pokedex as IPokemonSpecies[];
+    
+    if (filters.allowedTypes.size > 0) {
+      newOptions = newOptions.filter(species => species.types.some(type => filters.allowedTypes.has(type)));
+    }
+
+    if (filters.excludedTypes.size > 0) {
+      newOptions = newOptions.filter(species => species.types.every(type => !filters.excludedTypes.has(type)));
+    }
+
+    setDexOptions(newOptions);
+  }, [filters]);
   
   const addToTeam = (pokemon: IPokemonSpecies) => {
     const updatedTeam = [...team];
@@ -57,7 +76,7 @@ function App() {
       
       <div className="dex-container">
       {
-        pokedex.map((species: IPokemonSpecies) =>
+        dexOptions.map((species: IPokemonSpecies) =>
           <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)}/>
         )
       }
