@@ -1,3 +1,18 @@
-div {
-  width: 100%;
+div.filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border: 2px rgba(0, 0, 0, 0.2) solid;
+  border-radius: 16px;
+  
+  max-width: 100%;
+  padding: 8px;
+  margin: 8px 24px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

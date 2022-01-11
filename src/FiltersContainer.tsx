@@ -10,7 +10,6 @@ export const FiltersContainer = ({
     filters: ISpeciesFilters, 
     setFilters: React.Dispatch<React.SetStateAction<ISpeciesFilters>>,
   }) => {
-
   const toggleDuplicates = () => {
     const newFilters = {
       ...filters
@@ -22,9 +21,17 @@ export const FiltersContainer = ({
   };
 
   return (
-    <div>
-      <input name='allowDupes' type='checkbox' checked={filters.allowDuplicates} onChange={toggleDuplicates} />
-      <label htmlFor='allowDupes'>Allow duplicates?</label>
+    <div className='filter-container'>
+      {/* Type filters */}
+      <span className='filter-group'></span>
+
+      {/* Generation filters */}
+      <span className='filter-group'></span>
+
+      <span className='filter-group'>
+        <input name='allowDupes' type='checkbox' checked={filters.allowDuplicates} onChange={toggleDuplicates} />
+        <label htmlFor='allowDupes'>Allow duplicates?</label>
+      </span>
     </div>
   );
 };
