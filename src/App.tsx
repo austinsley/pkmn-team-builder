@@ -27,8 +27,13 @@ export const App = () => {
       newOptions = newOptions.filter(species => species.types.every(type => !filters.excludedTypes.has(type)));
     }
 
+    // Don't allow duplicates on a team
+    if (team.length > 0) {
+      newOptions = newOptions.filter(species => team.findIndex(teamMember => teamMember.species === species) < 0);
+    }
+
     setDexOptions(newOptions);
-  }, [filters]);
+  }, [filters, team]);
   
   const addToTeam = (pokemon: IPokemonSpecies) => {
     const updatedTeam = [...team];
