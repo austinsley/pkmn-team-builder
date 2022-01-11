@@ -32,14 +32,14 @@ export const App = () => {
       }
 
       if (
-        filters.allowedTypes.size > 0 && 
+        filters.allowedTypes.size > 0 &&
         species.types.every(type => !filters.allowedTypes.has(type))
       ) {
         return false;
       }
-  
+
       if (
-        filters.excludedTypes.size > 0 && 
+        filters.excludedTypes.size > 0 &&
         species.types.some(type => filters.excludedTypes.has(type))
       ) {
         return false;
@@ -50,7 +50,7 @@ export const App = () => {
 
     setDexOptions(newOptions);
   }, [filters, team]);
-  
+
   const addToTeam = (pokemon: IPokemonSpecies) => {
     const updatedTeam = [...team];
 
@@ -67,7 +67,7 @@ export const App = () => {
   const removeFromTeam = (index: number) => {
     const updatedTeam = [...team];
 
-    if(!team[index]) {
+    if (!team[index]) {
       return;
     }
     updatedTeam.splice(index, 1);
@@ -77,7 +77,7 @@ export const App = () => {
   const toggleShiny = (index: number) => {
     const updatedTeam = [...team];
 
-    if(!team[index]) {
+    if (!team[index]) {
       return;
     }
     updatedTeam[index].shiny = !updatedTeam[index].shiny;
@@ -95,14 +95,14 @@ export const App = () => {
         }
       </div>
 
-      <FiltersContainer filters={{...filters}} setFilters={setFilters} />
-      
+      <FiltersContainer filters={{ ...filters }} setFilters={setFilters} />
+
       <div className="dex-container">
-      {
-        dexOptions.map((species: IPokemonSpecies) =>
-          <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)}/>
-        )
-      }
+        {
+          dexOptions.map((species: IPokemonSpecies) =>
+            <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)} />
+          )
+        }
       </div>
     </div>
   );

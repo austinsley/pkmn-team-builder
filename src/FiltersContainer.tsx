@@ -4,12 +4,12 @@ import './FiltersContainer.css';
 import React from 'react';
 
 export const FiltersContainer = ({
-    filters,
-    setFilters,
-  }: {
-    filters: ISpeciesFilters, 
-    setFilters: React.Dispatch<React.SetStateAction<ISpeciesFilters>>,
-  }) => {
+  filters,
+  setFilters,
+}: {
+  filters: ISpeciesFilters,
+  setFilters: React.Dispatch<React.SetStateAction<ISpeciesFilters>>,
+}) => {
   const toggleDuplicates = () => {
     const newFilters = {
       ...filters
