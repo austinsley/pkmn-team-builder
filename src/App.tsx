@@ -13,6 +13,7 @@ export const App = () => {
   const [filters, setFilters] = useState({
     allowedTypes: new Set(),
     excludedTypes: new Set(),
+    allowDuplicates: false,
   } as ISpeciesFilters);
   const [dexOptions, setDexOptions] = useState(pokedex as IPokemonSpecies[]);
 
@@ -21,7 +22,11 @@ export const App = () => {
     const speciesOnTeam = new Set(team.map(member => member.species));
 
     newOptions = newOptions.filter(species => {
-      if (team.length > 0 && speciesOnTeam.has(species)) {
+      if (
+        !filters.allowDuplicates &&
+        team.length > 0 &&
+        speciesOnTeam.has(species)
+      ) {
         return false;
       }
 
