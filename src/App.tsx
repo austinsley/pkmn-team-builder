@@ -2,19 +2,14 @@ import React, { useState } from 'react';
 import 'pokesprite-spritesheet/assets/pokesprite-pokemon-gen8.css';
 
 import pokedex from './data/pokemon.json';
-import { PartyMember } from './PartyMember';
+import { IPartyMember, IPokemonSpecies } from './models/models';
 import { DexSprite } from './DexSprite';
+import { PartyMember } from './PartyMember';
 
 import './App.css';
 
-export interface IPokemonSpecies {
-  id: number,
-  slug: string,
-  types: string[],
-}
-
 function App() {
-  const [team, setTeam] = useState([] as IPokemonSpecies[]);
+  const [team, setTeam] = useState([] as IPartyMember[]);
   
   const addToTeam = (pokemon: IPokemonSpecies) => {
     const updatedTeam = [...team];
@@ -22,7 +17,10 @@ function App() {
     if (team.length === 6) {
       updatedTeam.shift();
     }
-    updatedTeam.push(pokemon);
+    updatedTeam.push({
+      species: pokemon,
+      shiny: false,
+    });
     setTeam(updatedTeam);
   }
 
@@ -36,12 +34,23 @@ function App() {
     setTeam(updatedTeam);
   }
 
+  const toggleShiny = (index: number) => {
+    const updatedTeam = [...team];
+
+    if(!team[index]) {
+      return;
+    }
+    updatedTeam[index].shiny = !updatedTeam[index].shiny;
+
+    setTeam(updatedTeam);
+  }
+
   return (
     <div className="App">
       <div className="team-container">
         {
           [...Array(6).keys()].map((i: number) => (
-            <PartyMember key={i} pokemon={team[i]} handleClick={() => removeFromTeam(i)}></PartyMember>
+            <PartyMember key={i} pokemon={team[i]} shinySwap={() => toggleShiny(i)} remove={() => removeFromTeam(i)}></PartyMember>
           ))
         }
       </div>

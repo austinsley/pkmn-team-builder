@@ -1,11 +1,43 @@
-.PartyMember {
-  height: 200px;
+* {
+  float: center;
 }
 
-.remove-button {
-  display: none;
+.PartyMember {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .PartyMember:hover .remove-button {
     display: inline-block;
+}
+
+.mod-button-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mod-button {
+  user-select: none;
+  cursor: pointer;
+}
+
+.form-toggle {
+  margin: -8px;
+}
+
+.shiny-toggle.active {
+  color: red;
+}
+
+.shiny-toggle.inactive {
+  color: silver;
+}
+
+.remove-button {
+  float: right;
+  display: none;
 }

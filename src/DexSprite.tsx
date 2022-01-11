@@ -1,15 +1,16 @@
 import React from 'react';
-import { IPokemonSpecies } from './App';
 import './DexSprite.css';
+import { IPokemonSpecies } from './models/models';
 
-export const DexSprite = ({pokemon, handleClick}: {
+export const DexSprite = ({pokemon, handleClick, shiny}: {
   pokemon?: IPokemonSpecies,
   handleClick?: () => void,
+  shiny?: boolean,
 }) => pokemon ? (
     <li
       className={`sprite-container ${pokemon.types[0]}-primary ${pokemon.types[pokemon.types.length-1]}-secondary`}
     >
-      <span className={`pokesprite pokemon ${pokemon.slug}`} onClick={handleClick}></span>
+      <span className={`pokesprite pokemon ${pokemon.slug}${shiny ? ' shiny' : ''}`} onClick={handleClick}></span>
     </li>
   ) : (
     <li
