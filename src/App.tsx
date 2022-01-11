@@ -18,19 +18,29 @@ export const App = () => {
 
   useEffect(() => {
     let newOptions = pokedex as IPokemonSpecies[];
-    
-    if (filters.allowedTypes.size > 0) {
-      newOptions = newOptions.filter(species => species.types.some(type => filters.allowedTypes.has(type)));
-    }
+    const speciesOnTeam = new Set(team.map(member => member.species));
 
-    if (filters.excludedTypes.size > 0) {
-      newOptions = newOptions.filter(species => species.types.every(type => !filters.excludedTypes.has(type)));
-    }
+    newOptions = newOptions.filter(species => {
+      if (team.length > 0 && speciesOnTeam.has(species)) {
+        return false;
+      }
 
-    // Don't allow duplicates on a team
-    if (team.length > 0) {
-      newOptions = newOptions.filter(species => team.findIndex(teamMember => teamMember.species === species) < 0);
-    }
+      if (
+        filters.allowedTypes.size > 0 && 
+        species.types.every(type => !filters.allowedTypes.has(type))
+      ) {
+        return false;
+      }
+  
+      if (
+        filters.excludedTypes.size > 0 && 
+        species.types.some(type => filters.excludedTypes.has(type))
+      ) {
+        return false;
+      }
+
+      return true;
+    });
 
     setDexOptions(newOptions);
   }, [filters, team]);
