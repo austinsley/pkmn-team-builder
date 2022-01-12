@@ -64,10 +64,10 @@ export const FiltersContainer = ({
       <span className='filter-group'>
         <label htmlFor='allowedTypes'>Allowed types{` (${filters.allowedTypes.size})`}</label>
         <select multiple name='allowedTypes' placeholder='all' onChange={val => updateAllowedTypes(val)}>
-          <option value='all' selected={filters.allowedTypes.size === 18}>all</option>
+          <option value='all'>all</option>
           {
             Object.values(PokemonType).map(typeName =>
-              <option value={typeName} selected={filters.allowedTypes.has(typeName)}>{typeName}</option>
+              <option key={typeName} value={typeName} selected={filters.allowedTypes.has(typeName)}>{typeName}</option>
             )
           }
         </select>
@@ -78,7 +78,7 @@ export const FiltersContainer = ({
         <select multiple name='excludedTypes' placeholder='all' onChange={val => updateExcludedTypes(val)}>
           {
             Object.values(PokemonType).map(typeName =>
-              <option value={typeName} selected={filters.excludedTypes.has(typeName)}>{typeName}</option>
+              <option key={typeName} value={typeName} selected={filters.excludedTypes.has(typeName)}>{typeName}</option>
             )
           }
         </select>
