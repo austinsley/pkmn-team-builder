@@ -39,7 +39,7 @@ export const FiltersContainer = ({
     const options = e.target.options;
 
     for (var i = 0; i < options.length; i++) {
-      if (options[0].selected || options[i].selected) {
+      if (options[i].selected) {
         newFilters.excludedTypes.add(options[i].value);
         newFilters.allowedTypes.delete(options[i].value);
       }
