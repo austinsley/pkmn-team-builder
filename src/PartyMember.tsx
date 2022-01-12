@@ -11,21 +11,23 @@ export const PartyMember = ({ pokemon, remove, shinySwap }: {
   pokemon?: IPartyMember,
   remove?: () => void,
   shinySwap?: () => void,
-}) => {
-  if (!pokemon) {
-    return <DexSprite></DexSprite>
-  }
+}) =>
+  <div className='PartyMember'>
+    {
+      pokemon ? (
+        <>
+          <div className='mod-button-container'>
+            <span className={`mod-button shiny-toggle ${pokemon.shiny ? 'active' : 'inactive'}`} onClick={shinySwap}>★</span>
+            <span className='mod-button remove-button' onClick={remove}>×</span>
+          </div>
 
-  return (
-    <div className='PartyMember'>
-      <div className='mod-button-container'>
-        <span className={`mod-button shiny-toggle ${pokemon.shiny ? 'active' : 'inactive'}`} onClick={shinySwap}>★</span>
-        <span className='mod-button remove-button' onClick={remove}>×</span>
-      </div>
-      <DexSprite pokemon={pokemon.species} shiny={pokemon.shiny}></DexSprite>
+          <img src={`https://img.pokemondb.net/sprites/home/${pokemon.shiny ? 'shiny' : 'normal'}/${pokemon.species.slug}.png`} alt={pokemon.species.slug} />
 
-      <span>{pokemon.species.slug}</span>
-      <span>{pokemon.species.types[0]}{pokemon.species.types[1] ? `/${pokemon.species.types[1]}` : ''}</span>
-    </div>
-  );
-};
+          <span>{pokemon.species.slug}</span>
+          <span>{pokemon.species.types.join('/')}</span>
+        </>
+      ) : (
+        <img className='placeholder-sprite' src='https://img.pokemondb.net/sprites/home/shiny/ditto.png' alt='Placeholder' />
+      )
+    }
+  </div>;

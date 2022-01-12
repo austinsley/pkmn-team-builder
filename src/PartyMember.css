@@ -9,7 +9,7 @@
 }
 
 .PartyMember:hover .remove-button {
-    display: inline-block;
+  display: inline-block;
 }
 
 .mod-button-container {
@@ -40,4 +40,8 @@
 .remove-button {
   float: right;
   display: none;
+}
+
+img.placeholder-sprite {
+  opacity: 25%;
 }
