@@ -24,7 +24,13 @@ export const PartyMember = ({ pokemon, remove, shinySwap }: {
           <img src={`https://img.pokemondb.net/sprites/home/${pokemon.shiny ? 'shiny' : 'normal'}/${pokemon.species.slug}.png`} alt={pokemon.species.slug} />
 
           <span>{pokemon.species.slug}</span>
-          <span>{pokemon.species.types.join('/')}</span>
+          <div className='types-container'>
+            {
+              pokemon.species.types.map(typeName =>
+                <img src={`/images/types/${typeName}.png`} alt={typeName} />
+              )
+            }
+          </div>
         </>
       ) : (
         <img className='placeholder-sprite' src='https://img.pokemondb.net/sprites/home/shiny/ditto.png' alt='Placeholder' />

@@ -42,6 +42,10 @@
   display: none;
 }
 
+.types-container img {
+  height: 32px;
+}
+
 img.placeholder-sprite {
   opacity: 25%;
 }
