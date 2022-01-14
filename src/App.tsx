@@ -1,16 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'pokesprite-spritesheet/assets/pokesprite-pokemon-gen8.css';
 
 import pokedex from './data/pokemon.json';
-import { IPartyMember, IPokemonSpecies } from './models/models';
+import { IPartyMember, IPokemonSpecies, ISpeciesFilters, PokemonType } from './models/models';
 import { DexSprite } from './DexSprite';
+import { FiltersContainer } from './FiltersContainer';
 import { PartyMember } from './PartyMember';
 
 import './App.css';
 
-function App() {
+export const App = () => {
   const [team, setTeam] = useState([] as IPartyMember[]);
-  
+  const [filters, setFilters] = useState({
+    allowedTypes: new Set(Object.values(PokemonType)),
+    excludedTypes: new Set(),
+    generation: new Set([... new Array(9).keys()].slice(1)),
+    allowDuplicates: false,
+  } as ISpeciesFilters);
+  const [dexOptions, setDexOptions] = useState(pokedex as IPokemonSpecies[]);
+
+  useEffect(() => {
+    let newOptions = pokedex as IPokemonSpecies[];
+    const speciesOnTeam = new Set(team.map(member => member.species));
+
+    newOptions = newOptions.filter(species => {
+      if (
+        !filters.allowDuplicates &&
+        team.length > 0 &&
+        speciesOnTeam.has(species)
+      ) {
+        return false;
+      }
+
+      if (
+        filters.allowedTypes.size > 0 &&
+        species.types.every(type => !filters.allowedTypes.has(type))
+      ) {
+        return false;
+      }
+
+      if (
+        filters.generation.size > 0 &&
+        !filters.generation.has(species.generation)
+      ) {
+        return false;
+      }
+
+      if (
+        filters.excludedTypes.size > 0 &&
+        species.types.some(type => filters.excludedTypes.has(type))
+      ) {
+        return false;
+      }
+
+      return true;
+    });
+
+    setDexOptions(newOptions);
+  }, [filters, team]);
+
   const addToTeam = (pokemon: IPokemonSpecies) => {
     const updatedTeam = [...team];
 
@@ -27,7 +75,7 @@ function App() {
   const removeFromTeam = (index: number) => {
     const updatedTeam = [...team];
 
-    if(!team[index]) {
+    if (!team[index]) {
       return;
     }
     updatedTeam.splice(index, 1);
@@ -37,7 +85,7 @@ function App() {
   const toggleShiny = (index: number) => {
     const updatedTeam = [...team];
 
-    if(!team[index]) {
+    if (!team[index]) {
       return;
     }
     updatedTeam[index].shiny = !updatedTeam[index].shiny;
@@ -54,13 +102,15 @@ function App() {
           ))
         }
       </div>
-      
+
+      <FiltersContainer filters={{ ...filters }} setFilters={setFilters} />
+
       <div className="dex-container">
-      {
-        pokedex.map((species: IPokemonSpecies) =>
-          <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)}/>
-        )
-      }
+        {
+          dexOptions.map((species: IPokemonSpecies) =>
+            <DexSprite key={species.id} pokemon={species} handleClick={() => addToTeam(species)} />
+          )
+        }
       </div>
     </div>
   );
