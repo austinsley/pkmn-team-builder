@@ -22,6 +22,7 @@ export enum PokemonType {
 export interface ISpeciesFilters {
   allowedTypes: Set<PokemonType>,
   excludedTypes: Set<PokemonType>,
+  generation: Set<number>,
   allowDuplicates: boolean,
 }
 

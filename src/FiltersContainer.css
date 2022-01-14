@@ -16,3 +16,7 @@ div.filter-container {
   flex-direction: row;
   align-items: center;
 }
+
+select {
+  min-width: 48px;
+}

@@ -14,6 +14,7 @@ export const App = () => {
   const [filters, setFilters] = useState({
     allowedTypes: new Set(Object.values(PokemonType)),
     excludedTypes: new Set(),
+    generation: new Set([... new Array(9).keys()].slice(1)),
     allowDuplicates: false,
   } as ISpeciesFilters);
   const [dexOptions, setDexOptions] = useState(pokedex as IPokemonSpecies[]);
@@ -34,6 +35,13 @@ export const App = () => {
       if (
         filters.allowedTypes.size > 0 &&
         species.types.every(type => !filters.allowedTypes.has(type))
+      ) {
+        return false;
+      }
+
+      if (
+        filters.generation.size > 0 &&
+        !filters.generation.has(species.generation)
       ) {
         return false;
       }

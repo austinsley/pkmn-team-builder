@@ -29,6 +29,24 @@ export const FiltersContainer = ({
     setFilters(newFilters);
   };
 
+  const updateGeneration = (e: any) => {
+    const newFilters = {
+      ...filters
+    };
+
+    newFilters.generation = new Set();
+
+    const options = e.target.options;
+
+    for (var i = 1; i < options.length; i++) {
+      if (options[0].selected || options[i].selected) {
+        newFilters.generation.add(parseInt(options[i].value));
+      }
+    }
+
+    setFilters(newFilters);
+  };
+
   const updateExcludedTypes = (e: any) => {
     const newFilters = {
       ...filters
@@ -38,8 +56,8 @@ export const FiltersContainer = ({
 
     const options = e.target.options;
 
-    for (var i = 0; i < options.length; i++) {
-      if (options[i].selected) {
+    for (var i = 1; i < options.length; i++) {
+      if (!options[0].selected && options[i].selected) {
         newFilters.excludedTypes.add(options[i].value);
         newFilters.allowedTypes.delete(options[i].value);
       }
@@ -76,6 +94,7 @@ export const FiltersContainer = ({
       <span className='filter-group'>
         <label htmlFor='excludedTypes'>Excluded types{` (${filters.excludedTypes.size})`}</label>
         <select multiple name='excludedTypes' placeholder='all' onChange={val => updateExcludedTypes(val)}>
+          <option value='none'>none</option>
           {
             Object.values(PokemonType).map(typeName =>
               <option key={typeName} value={typeName} selected={filters.excludedTypes.has(typeName)}>{typeName}</option>
@@ -84,8 +103,17 @@ export const FiltersContainer = ({
         </select>
       </span>
 
-      {/* Generation filters */}
-      <span className='filter-group'></span>
+      <span className='filter-group'>
+        <label htmlFor='generation'>Generation</label>
+        <select multiple name='excludedTypes' placeholder='all' onChange={val => updateGeneration(val)}>
+          <option value='all'>all</option>
+          {
+            [...Array(9).keys()].slice(1).map(gen =>
+              <option key={gen} value={gen} selected={filters.generation.has(gen)}>{gen}</option>
+            )
+          }
+        </select>
+      </span>
 
       <span className='filter-group'>
         <label htmlFor='allowDupes'>Allow duplicates?</label>
