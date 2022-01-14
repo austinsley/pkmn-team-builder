@@ -1,7 +1,3 @@
-* {
-  float: center;
-}
-
 .PartyMember {
   height: 200px;
   display: flex;
@@ -48,5 +44,5 @@
 }
 
 img.placeholder-sprite {
-  opacity: 25%;
+  opacity: 0.25;
 }
