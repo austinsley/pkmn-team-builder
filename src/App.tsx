@@ -14,7 +14,7 @@ export const App = () => {
   const [filters, setFilters] = useState({
     allowedTypes: new Set(Object.values(PokemonType)),
     excludedTypes: new Set(),
-    generation: new Set([... new Array(9).keys()].slice(1)),
+    generation: new Set([...new Array(9).keys()].slice(1)),
     allowDuplicates: false,
   } as ISpeciesFilters);
   const [dexOptions, setDexOptions] = useState(pokedex as IPokemonSpecies[]);
