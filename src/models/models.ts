@@ -29,6 +29,7 @@ export interface IPokemonSpecies {
   id: number,
   slug: string,
   types: PokemonType[],
+  generation: number,
 }
 
 export interface IPartyMember {

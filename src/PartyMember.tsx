@@ -1,5 +1,4 @@
 import React from 'react';
-import { DexSprite } from './DexSprite';
 import { IPartyMember } from './models/models';
 
 import 'pokesprite-spritesheet/assets/pokesprite-inventory.css';
